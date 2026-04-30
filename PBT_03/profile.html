@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Profile - PBT 03</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header" id="home">
+        <h1>Lê Trần Tiến Bảo</h1>
+        <p class="tagline">Sinh viên Công nghệ thông tin - Học CSS Core</p>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#home" class="active">Trang chủ</a></li>
+                <li><a href="#about">Về tôi</a></li>
+                <li><a href="#skills">Kỹ năng</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-container">
+        <section id="about" class="profile-card">
+            <h2>Về tôi</h2>
+            <article>
+                <figure>
+                    <img src="https://placehold.co/220x220" alt="Ảnh đại diện cá nhân" loading="lazy">
+                    <figcaption>Ảnh đại diện</figcaption>
+                </figure>
+
+                <p>
+                    Đây là trang profile dùng để thực hành CSS Core. Nội dung tập trung vào cách sử dụng
+                    selector, box model, cascade và inheritance trong CSS.
+                </p>
+
+                <p>
+                    Mục tiêu của bài là biết cách tách CSS ra file external, định dạng typography,
+                    navigation, table và footer một cách rõ ràng.
+                </p>
+            </article>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <h2>Kỹ năng</h2>
+
+            <table class="skills-table">
+                <caption>Bảng kỹ năng học tập</caption>
+                <thead>
+                    <tr>
+                        <th>Kỹ năng</th>
+                        <th>Mức độ</th>
+                        <th>Ghi chú</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HTML5</td>
+                        <td>Khá</td>
+                        <td>Biết semantic HTML</td>
+                    </tr>
+                    <tr>
+                        <td>CSS Selectors</td>
+                        <td>Khá</td>
+                        <td>Biết element, class, id, pseudo-class</td>
+                    </tr>
+                    <tr>
+                        <td>Box Model</td>
+                        <td>Đang luyện tập</td>
+                        <td>Hiểu content-box và border-box</td>
+                    </tr>
+                    <tr>
+                        <td>Specificity</td>
+                        <td>Đang luyện tập</td>
+                        <td>Biết cách tính độ ưu tiên</td>
+                    </tr>
+                    <tr>
+                        <td>Git/GitHub</td>
+                        <td>Cơ bản</td>
+                        <td>Biết commit và push bài</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Tổng số kỹ năng: 5</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <aside id="contact" class="contact-box">
+            <h2>Thông tin liên hệ</h2>
+            <address>
+                <p>Email: <a href="mailto:example@email.com">tienbao37fc@email.com</a></p>
+                <p>GitHub: <a href="https://github.com/" target="_blank" rel="noopener">github.com</a></p>
+            </address>
+        </aside>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026. Trang profile thực hành CSS Core.</p>
+    </footer>
+</body>
+</html>

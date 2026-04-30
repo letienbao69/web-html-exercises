@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f8fafc;
+    color: #1f2937;
+}
+
+.battle {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 28px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+}
+
+/* 1. Specificity: 0,0,1 */
+p {
+    color: black;
+}
+
+/* 2. Specificity: 0,0,2 */
+section p {
+    color: gray;
+}
+
+/* 3. Specificity: 0,1,0 */
+.text {
+    color: blue;
+}
+
+/* 4. Specificity: 0,1,0 */
+.highlight {
+    color: green;
+}
+
+/* 5. Specificity: 0,1,1 */
+p.text {
+    color: purple;
+}
+
+/* 6. Specificity: 0,2,0 */
+.text.highlight {
+    color: orange;
+}
+
+/* 7. Specificity: 0,3,0 */
+.battle .text.highlight {
+    color: brown;
+}
+
+/* 8. Specificity: 1,0,0 */
+#demo {
+    color: red;
+}
+
+/* 9. Specificity: 1,1,1 */
+p#demo.text {
+    color: teal;
+}
+
+/* 10. Specificity: 2,0,0 */
+#specificity-page #demo {
+    color: crimson;
+}
+
+#demo {
+    font-size: 40px;
+    font-weight: 800;
+    padding: 20px;
+    border: 4px solid currentColor;
+    border-radius: 14px;
+    text-align: center;
+}

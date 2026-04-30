@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Layout - PBT 03</title>
+    <link rel="stylesheet" href="debug_layout.css">
+</head>
+<body>
+    <header class="page-header">
+        <h1>Debug CSS Layout</h1>
+        <p>Chứng minh layout vỡ và hai cách sửa</p>
+    </header>
+
+    <main>
+        <section class="demo-section">
+            <h2>Layout lỗi ban đầu</h2>
+            <p>Tổng thực tế = 342px + 722px = 1064px, lớn hơn container 960px.</p>
+
+            <div class="container broken">
+                <aside class="sidebar">Sidebar lỗi</aside>
+                <section class="content">Content bị đẩy xuống hoặc tràn</section>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <h2>Cách sửa 1 — Dùng border-box</h2>
+            <p>Width đã bao gồm padding và border, nên 300px + 660px = 960px.</p>
+
+            <div class="container fixed-border-box">
+                <aside class="sidebar">Sidebar border-box</aside>
+                <section class="content">Content border-box</section>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <h2>Cách sửa 2 — Không dùng border-box, tự trừ width</h2>
+            <p>Sidebar width = 258px, content width = 598px để tổng thực tế vừa 960px.</p>
+
+            <div class="container fixed-content-box">
+                <aside class="sidebar">Sidebar content-box</aside>
+                <section class="content">Content content-box</section>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

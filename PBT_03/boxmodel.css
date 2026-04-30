@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f8fafc;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+.hero {
+    background: linear-gradient(135deg, #0f172a, #2563eb);
+    color: #ffffff;
+    padding: 30px;
+    text-align: center;
+}
+
+.page {
+    width: min(1200px, 94%);
+    margin: 30px auto;
+}
+
+.lab-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.box-row {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.demo-box {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid #111827;
+    margin: 10px;
+    background: #dbeafe;
+}
+
+.content-box-demo {
+    box-sizing: content-box;
+    border-color: #dc2626;
+}
+
+.border-box-demo {
+    box-sizing: border-box;
+    border-color: #16a34a;
+}
+
+.layout-container {
+    width: 1000px;
+    margin: 20px auto;
+    border: 4px dashed #374151;
+    background: #f9fafb;
+    overflow: auto;
+}
+
+.broken-layout .left-column,
+.broken-layout .middle-column,
+.broken-layout .right-column {
+    box-sizing: content-box;
+    float: left;
+    min-height: 110px;
+    border: 2px solid #64748b;
+}
+
+.broken-layout .left-column {
+    width: 250px;
+    padding: 15px;
+    background: #fee2e2;
+}
+
+.broken-layout .middle-column {
+    width: 500px;
+    padding: 20px;
+    background: #fef3c7;
+}
+
+.broken-layout .right-column {
+    width: 250px;
+    padding: 15px;
+    background: #fee2e2;
+}
+
+.fixed-layout * {
+    box-sizing: border-box;
+}
+
+.fixed-layout {
+    display: flex;
+}
+
+.fixed-layout .left-column {
+    width: 250px;
+    padding: 15px;
+    background: #dcfce7;
+    border: 2px solid #16a34a;
+}
+
+.fixed-layout .middle-column {
+    width: 500px;
+    padding: 20px;
+    background: #e0f2fe;
+    border: 2px solid #0284c7;
+}
+
+.fixed-layout .right-column {
+    width: 250px;
+    padding: 15px;
+    background: #dcfce7;
+    border: 2px solid #16a34a;
+}
+
+.collapse-a {
+    background: #fde68a;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 2px solid #f59e0b;
+}
+
+.collapse-b {
+    background: #bfdbfe;
+    padding: 20px;
+    margin-top: 40px;
+    border: 2px solid #2563eb;
+}

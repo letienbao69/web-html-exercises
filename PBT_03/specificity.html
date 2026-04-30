@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specificity Battle - PBT 03</title>
+    <link rel="stylesheet" href="specificity.css">
+</head>
+<body id="specificity-page">
+    <main class="battle">
+        <h1>Specificity Battle</h1>
+        <section>
+            <h2>Phần tử demo</h2>
+            <p id="demo" class="text highlight">Hello World</p>
+        </section>
+
+        <section class="explain">
+            <h2>Kết quả mong đợi</h2>
+            <p>Element cuối cùng hiển thị màu crimson vì selector <code>#specificity-page #demo</code> có specificity cao nhất: <code>(2,0,0)</code>.</p>
+        </section>
+    </main>
+</body>
+</html>

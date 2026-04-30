@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model Lab - PBT 03</title>
+    <link rel="stylesheet" href="boxmodel.css">
+</head>
+<body>
+    <header class="hero">
+        <h1>Box Model Lab</h1>
+        <p>Chứng minh content-box, border-box và layout 3 cột</p>
+    </header>
+
+    <main class="page">
+        <section class="lab-card">
+            <h2>Phần 1 — Content-box vs Border-box</h2>
+
+            <div class="box-row">
+                <div class="demo-box content-box-demo">
+                    <h3>Content-box</h3>
+                    <p>width: 300px</p>
+                    <p>padding: 20px</p>
+                    <p>border: 5px</p>
+                    <p>Kết quả: 350px</p>
+                </div>
+
+                <div class="demo-box border-box-demo">
+                    <h3>Border-box</h3>
+                    <p>width: 300px</p>
+                    <p>padding: 20px</p>
+                    <p>border: 5px</p>
+                    <p>Kết quả: 300px</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="lab-card">
+            <h2>Phần 2 — Layout 3 cột không dùng border-box</h2>
+            <p>Tổng thực tế: 280px + 540px + 280px = 1100px, lớn hơn container 1000px.</p>
+
+            <div class="layout-container broken-layout">
+                <aside class="left-column">Sidebar 250px + padding</aside>
+                <section class="middle-column">Content 500px + padding</section>
+                <aside class="right-column">Ads 250px + padding</aside>
+            </div>
+        </section>
+
+        <section class="lab-card">
+            <h2>Phần 3 — Layout 3 cột dùng border-box</h2>
+            <p>Tổng đúng: 250px + 500px + 250px = 1000px.</p>
+
+            <div class="layout-container fixed-layout">
+                <aside class="left-column">Sidebar 250px</aside>
+                <section class="middle-column">Content 500px</section>
+                <aside class="right-column">Ads 250px</aside>
+            </div>
+        </section>
+
+        <section class="lab-card">
+            <h2>Phần 4 — Margin Collapse</h2>
+            <div class="collapse-a">Box A: margin-bottom 25px</div>
+            <div class="collapse-b">Box B: margin-top 40px</div>
+            <p>Khoảng cách giữa 2 box là 40px, không phải 65px.</p>
+        </section>
+    </main>
+</body>
+</html>
