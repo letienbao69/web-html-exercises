@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBT 04 - Grid Layout E-Commerce</title>
+    <link rel="stylesheet" href="grid.css">
+</head>
+<body>
+    <div class="layout">
+        <header class="site-header">
+            <a class="logo" href="#">GridShop</a>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <section class="hero" id="home">
+            <div>
+                <p class="eyebrow">New Collection 2026</p>
+                <h1>Grid Layout E-Commerce</h1>
+                <p>Trang chủ thương mại điện tử sử dụng CSS Grid, grid-template-areas và grid con.</p>
+            </div>
+
+            <article class="hero-card">
+                <img src="https://placehold.co/500x300" alt="Sản phẩm nổi bật" loading="lazy">
+                <h2>Sản phẩm nổi bật</h2>
+                <p>Giảm giá 20% trong hôm nay.</p>
+            </article>
+        </section>
+
+        <aside class="sidebar">
+            <h2>Bộ lọc</h2>
+            <fieldset>
+                <legend>Danh mục</legend>
+                <label><input type="checkbox"> Điện thoại</label>
+                <label><input type="checkbox"> Laptop</label>
+                <label><input type="checkbox"> Phụ kiện</label>
+                <label><input type="checkbox"> Tablet</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Thương hiệu</legend>
+                <label><input type="checkbox"> Apple</label>
+                <label><input type="checkbox"> Samsung</label>
+                <label><input type="checkbox"> Xiaomi</label>
+                <label><input type="checkbox"> OPPO</label>
+            </fieldset>
+        </aside>
+
+        <main class="main-content" id="products">
+            <h2>Sản phẩm mới</h2>
+
+            <section class="product-grid">
+                <article class="product-card featured-product">
+                    <img src="https://placehold.co/500x300" alt="Điện thoại nổi bật" loading="lazy">
+                    <h3>Phone Max Pro</h3>
+                    <p>Card nổi bật span 2 cột bằng CSS Grid.</p>
+                    <strong>25.990.000đ</strong>
+                </article>
+
+                <article class="product-card">
+                    <img src="https://placehold.co/500x300" alt="Laptop A" loading="lazy">
+                    <h3>Laptop A</h3>
+                    <p>Hiệu năng tốt.</p>
+                    <strong>16.990.000đ</strong>
+                </article>
+
+                <article class="product-card">
+                    <img src="https://placehold.co/500x300" alt="Tai nghe B" loading="lazy">
+                    <h3>Tai nghe B</h3>
+                    <p>Chống ồn tốt.</p>
+                    <strong>1.990.000đ</strong>
+                </article>
+
+                <article class="product-card">
+                    <img src="https://placehold.co/500x300" alt="Tablet C" loading="lazy">
+                    <h3>Tablet C</h3>
+                    <p>Màn hình lớn.</p>
+                    <strong>7.990.000đ</strong>
+                </article>
+
+                <article class="product-card">
+                    <img src="https://placehold.co/500x300" alt="Chuột D" loading="lazy">
+                    <h3>Chuột D</h3>
+                    <p>DPI cao.</p>
+                    <strong>790.000đ</strong>
+                </article>
+
+                <article class="product-card">
+                    <img src="https://placehold.co/500x300" alt="Bàn phím E" loading="lazy">
+                    <h3>Bàn phím E</h3>
+                    <p>Gõ êm.</p>
+                    <strong>1.290.000đ</strong>
+                </article>
+            </section>
+        </main>
+
+        <aside class="ads">
+            <h2>Quảng cáo</h2>
+            <img src="https://placehold.co/200x360" alt="Banner quảng cáo phụ kiện" loading="lazy">
+            <p>Deal phụ kiện giảm đến 50%.</p>
+        </aside>
+
+        <footer class="site-footer" id="contact">
+            <section>
+                <h2>GridShop</h2>
+                <p>&copy; 2026. E-Commerce Grid Layout.</p>
+            </section>
+        </footer>
+    </div>
+</body>
+</html>
