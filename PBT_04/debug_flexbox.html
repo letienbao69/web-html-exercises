@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBT 04 - Debug Flexbox</title>
+    <link rel="stylesheet" href="debug_flexbox.css">
+</head>
+<body>
+    <header class="page-header">
+        <h1>Debug Flexbox</h1>
+        <p>Kiểm chứng trước/sau cho 3 lỗi Flexbox trong phần C2.</p>
+    </header>
+
+    <main>
+        <section class="debug-section">
+            <h2>Lỗi 1 — Cards không đều chiều cao</h2>
+            <h3>Trước khi sửa</h3>
+            <div class="bad-card-container">
+                <article class="bad-card">
+                    <img src="https://placehold.co/400x220" alt="Sản phẩm 1">
+                    <h3>Sản phẩm ngắn</h3>
+                    <p>Mô tả ngắn.</p>
+                    <a class="btn" href="#">Mua</a>
+                </article>
+                <article class="bad-card">
+                    <img src="https://placehold.co/400x220" alt="Sản phẩm 2">
+                    <h3>Sản phẩm dài</h3>
+                    <p>Mô tả dài hơn nhiều làm nút mua bị đẩy xuống khác vị trí so với card bên cạnh.</p>
+                    <a class="btn" href="#">Mua</a>
+                </article>
+            </div>
+
+            <h3>Sau khi sửa</h3>
+            <div class="good-card-container">
+                <article class="good-card">
+                    <img src="https://placehold.co/400x220" alt="Sản phẩm 1">
+                    <h3>Sản phẩm ngắn</h3>
+                    <p>Mô tả ngắn.</p>
+                    <a class="btn" href="#">Mua</a>
+                </article>
+                <article class="good-card">
+                    <img src="https://placehold.co/400x220" alt="Sản phẩm 2">
+                    <h3>Sản phẩm dài</h3>
+                    <p>Mô tả dài hơn nhiều nhưng nút mua vẫn dính đáy nhờ margin-top: auto.</p>
+                    <a class="btn" href="#">Mua</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="debug-section">
+            <h2>Lỗi 2 — Hero content không nằm giữa</h2>
+            <h3>Trước khi sửa</h3>
+            <div class="bad-hero">
+                <div class="hero-content">
+                    <h3>Hero Content</h3>
+                    <p>Đang dính góc trên trái.</p>
+                </div>
+            </div>
+
+            <h3>Sau khi sửa</h3>
+            <div class="good-hero">
+                <div class="hero-content">
+                    <h3>Hero Content</h3>
+                    <p>Đã căn giữa ngang và dọc.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="debug-section">
+            <h2>Lỗi 3 — Sidebar bị co lại</h2>
+            <h3>Trước khi sửa</h3>
+            <div class="bad-layout">
+                <aside class="sidebar">Sidebar bị co</aside>
+                <section class="content">Content rất dài rất dài rất dài rất dài rất dài rất dài rất dài rất dài rất dài rất dài rất dài.</section>
+            </div>
+
+            <h3>Sau khi sửa</h3>
+            <div class="good-layout">
+                <aside class="sidebar">Sidebar cố định 250px</aside>
+                <section class="content">Content dài nhưng sidebar không bị co nhờ flex: 0 0 250px.</section>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
