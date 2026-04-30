@@ -402,34 +402,4 @@ Tuy nhiên, `<div>` không phải là thẻ xấu. Trong thực tế, `<div>` v�
 
 ## PHẦN D — VIDEO OBS
 
-Video thực hành cần có các nội dung:
 
-1. Giới thiệu họ tên, MSSV, lớp.
-2. Tạo file HTML bằng Visual Studio Code.
-3. Gõ code từng phần, không copy toàn bộ.
-4. Giải thích vì sao dùng `<header>`, `<nav>`, `<main>`, `<article>`, `<figure>`, `<figcaption>`, `<footer>`.
-5. Mở trình duyệt để xem kết quả.
-6. Mở DevTools tab Elements để chỉ DOM Tree.
-7. Lưu video vào thư mục `videos/`.
-
-Tên file video đề xuất: `PBT01_LeTranTienBao_2251172247.mp4`
-
----
-
-## CHECKLIST NỘP BÀI
-
-- [x] Có thư mục `PBT_01/`
-- [x] Có file `answers.md`
-- [x] Có file `profile.html`
-- [x] Có file `products.html`
-- [x] Có file `debug.html`
-- [ ] Có ảnh `screenshots/A1_network.png`
-- [ ] Có ảnh `screenshots/B1_profile.png`
-- [ ] Có ảnh `screenshots/B2_products.png`
-- [ ] Có ảnh `screenshots/B3_debug.png`
-- [ ] Có ảnh `screenshots/B4_elements.png`
-- [ ] Có ảnh `screenshots/B4_table.png`
-- [ ] Có ảnh `screenshots/B4_form.png`
-- [ ] Có ảnh validate HTML `screenshots/validator.png`
-- [ ] Có video OBS trong thư mục `videos/`
-- [x] Có commit rõ ràng trên GitHub

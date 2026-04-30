@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra HTML5 Validation</title>
+</head>
+<body>
+    <header>
+        <h1>Kiểm tra HTML5 Validation</h1>
+        <p>File dùng để kiểm tra 5 trường hợp validation trong phần A2.</p>
+    </header>
+
+    <main>
+        <form action="#" method="POST">
+            <fieldset>
+                <legend>Các trường hợp validation</legend>
+
+                <p>
+                    <label for="case1">Trường hợp 1 - Required để trống:</label>
+                    <input type="text" id="case1" name="case1" required value="" placeholder="Bắt buộc nhập">
+                </p>
+
+                <p>
+                    <label for="case2">Trường hợp 2 - Email sai định dạng:</label>
+                    <input type="email" id="case2" name="case2" value="abc" placeholder="example@email.com">
+                </p>
+
+                <p>
+                    <label for="case3">Trường hợp 3 - Number vượt max:</label>
+                    <input type="number" id="case3" name="case3" min="1" max="10" value="15" placeholder="Nhập số từ 1 đến 10">
+                </p>
+
+                <p>
+                    <label for="case4">Trường hợp 4 - Pattern yêu cầu 10 chữ số:</label>
+                    <input type="text" id="case4" name="case4" pattern="[0-9]{10}" value="abc123" placeholder="Nhập đúng 10 chữ số">
+                </p>
+
+                <p>
+                    <label for="case5">Trường hợp 5 - Password tối thiểu 8 ký tự:</label>
+                    <input type="password" id="case5" name="case5" minlength="8" value="123" placeholder="Tối thiểu 8 ký tự">
+                </p>
+            </fieldset>
+
+            <button type="submit">Submit để kiểm tra</button>
+            <button type="reset">Reset</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>Bài thực hành HTML5 Validation</p>
+    </footer>
+</body>
+</html>

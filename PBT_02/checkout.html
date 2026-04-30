@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form đặt hàng hoàn chỉnh</title>
+</head>
+<body>
+    <header>
+        <h1>Thanh toán đơn hàng</h1>
+        <p>Hoàn tất thông tin để đặt hàng</p>
+
+        <nav>
+            <ul>
+                <li><a href="#cart">Giỏ hàng</a></li>
+                <li><a href="#payment">Thanh toán</a></li>
+                <li><a href="#shipping">Giao hàng</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="cart">
+            <h2>Giỏ hàng</h2>
+
+            <table border="1">
+                <caption>Danh sách sản phẩm trong giỏ hàng</caption>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Sản phẩm</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Điện thoại A</td><td>10.000.000đ</td><td>1</td><td>10.000.000đ</td></tr>
+                    <tr><td>2</td><td>Tai nghe Bluetooth</td><td>1.500.000đ</td><td>2</td><td>3.000.000đ</td></tr>
+                    <tr><td>3</td><td>Ốp lưng chống sốc</td><td>250.000đ</td><td>1</td><td>250.000đ</td></tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4"><strong>Tổng cộng</strong></td>
+                        <td><strong>13.250.000đ</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <section id="payment">
+            <h2>Form thanh toán</h2>
+
+            <form action="#" method="POST">
+                <fieldset>
+                    <legend>Phương thức thanh toán</legend>
+                    <p><input type="radio" id="paymentCod" name="paymentMethod" value="cod" required> <label for="paymentCod">COD - Thanh toán khi nhận hàng</label></p>
+                    <p><input type="radio" id="paymentBank" name="paymentMethod" value="bank-transfer"> <label for="paymentBank">Chuyển khoản ngân hàng</label></p>
+                    <p><input type="radio" id="paymentWallet" name="paymentMethod" value="e-wallet"> <label for="paymentWallet">Ví điện tử</label></p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Ưu đãi và ghi chú</legend>
+
+                    <p>
+                        <label for="productSearch">Tìm nhanh sản phẩm:</label>
+                        <input list="productSuggestions" id="productSearch" name="productSearch" placeholder="Nhập tên sản phẩm">
+                        <datalist id="productSuggestions">
+                            <option value="Điện thoại A">
+                            <option value="Tai nghe Bluetooth">
+                            <option value="Ốp lưng chống sốc">
+                            <option value="Sạc nhanh USB-C">
+                        </datalist>
+                    </p>
+
+                    <p>
+                        <label for="coupon">Mã giảm giá:</label>
+                        <input type="text" id="coupon" name="coupon" pattern="SALE[0-9]{4}" placeholder="VD: SALE2026" title="Mã giảm giá phải có định dạng SALE + 4 chữ số">
+                    </p>
+
+                    <p>
+                        <label for="note">Ghi chú:</label>
+                        <textarea id="note" name="note" rows="3" placeholder="Ghi chú cho người bán hoặc đơn vị vận chuyển"></textarea>
+                    </p>
+
+                    <p><label for="totalOutput">Tổng tiền hiển thị:</label> <output id="totalOutput" name="totalOutput">13.250.000đ</output></p>
+                    <p><label for="memberPoint">Điểm tích lũy:</label> <meter id="memberPoint" min="0" max="100" value="65">65/100</meter></p>
+                    <p><label for="orderProgress">Tiến độ hoàn tất đơn hàng:</label> <progress id="orderProgress" value="70" max="100">70%</progress></p>
+                </fieldset>
+
+                <fieldset id="shipping">
+                    <legend>Thông tin giao hàng</legend>
+
+                    <p><label for="receiverName">Người nhận:</label> <input type="text" id="receiverName" name="receiverName" required minlength="2" maxlength="50" placeholder="Nhập họ tên người nhận"></p>
+                    <p><label for="receiverPhone">Số điện thoại:</label> <input type="tel" id="receiverPhone" name="receiverPhone" required pattern="[0-9]{10}" placeholder="0901234567" title="Số điện thoại gồm đúng 10 chữ số"></p>
+                    <p><label for="receiverAddress">Địa chỉ giao hàng:</label> <textarea id="receiverAddress" name="receiverAddress" rows="3" required placeholder="Nhập địa chỉ nhận hàng"></textarea></p>
+                    <p><label for="deliveryDate">Ngày giao hàng mong muốn:</label> <input type="date" id="deliveryDate" name="deliveryDate" min="2026-05-01" required></p>
+
+                    <p>
+                        <label for="deliveryTime">Khung giờ:</label>
+                        <select id="deliveryTime" name="deliveryTime" required>
+                            <option value="">-- Chọn khung giờ --</option>
+                            <option value="morning">Sáng 8-12h</option>
+                            <option value="afternoon">Chiều 14-18h</option>
+                            <option value="evening">Tối 18-21h</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="deliveryDays">Thời gian giao hàng:</label>
+                        <input type="range" id="deliveryDays" name="deliveryDays" min="1" max="7" step="1" value="3">
+                        <span>1 - 7 ngày</span>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <button type="submit" aria-label="Xác nhận đặt hàng">Xác nhận đặt hàng</button>
+                    <button type="reset">Nhập lại</button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Website E-Commerce</p>
+    </footer>
+</body>
+</html>

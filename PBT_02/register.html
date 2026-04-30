@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form đăng ký tài khoản E-Commerce</title>
+</head>
+<body>
+    <header>
+        <h1>Đăng ký tài khoản</h1>
+        <p>Form đăng ký tài khoản cho website thương mại điện tử</p>
+
+        <nav>
+            <ul>
+                <li><a href="#personal-info">Thông tin cá nhân</a></li>
+                <li><a href="#account-info">Tài khoản</a></li>
+                <li><a href="#shipping-info">Giao hàng</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form action="#" method="POST">
+            <fieldset id="personal-info">
+                <legend>Thông tin cá nhân</legend>
+
+                <p>
+                    <label for="fullName">Họ tên:</label>
+                    <input type="text" id="fullName" name="fullName" required minlength="2" maxlength="50" placeholder="Nhập họ và tên">
+                </p>
+
+                <p>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="example@email.com">
+                </p>
+
+                <p>
+                    <label for="phone">Số điện thoại:</label>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="0901234567" required title="Số điện thoại phải gồm đúng 10 chữ số">
+                </p>
+
+                <p>
+                    <label for="birthday">Ngày sinh:</label>
+                    <input type="date" id="birthday" name="birthday" max="2026-04-30" placeholder="Chọn ngày sinh">
+                </p>
+            </fieldset>
+
+            <fieldset id="account-info">
+                <legend>Tài khoản</legend>
+
+                <p>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required pattern="[A-Za-z0-9_]{3,20}" placeholder="VD: user_2026" title="Username chỉ gồm chữ cái, số, dấu gạch dưới và dài 3-20 ký tự">
+                </p>
+
+                <p>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required minlength="8" pattern="(?=.*[A-Z])(?=.*[0-9]).{8,}" placeholder="Ít nhất 8 ký tự, có chữ hoa và số" title="Mật khẩu tối thiểu 8 ký tự, có ít nhất 1 chữ hoa và 1 số">
+                </p>
+
+                <p>
+                    <label for="confirmPassword">Xác nhận password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required minlength="8" pattern="(?=.*[A-Z])(?=.*[0-9]).{8,}" placeholder="Nhập lại mật khẩu" title="HTML chỉ kiểm tra định dạng, không tự so sánh được với password ban đầu">
+                </p>
+            </fieldset>
+
+            <fieldset id="shipping-info">
+                <legend>Thông tin giao hàng</legend>
+
+                <p>
+                    <label for="city">Thành phố:</label>
+                    <select id="city" name="city" required>
+                        <option value="">-- Chọn tỉnh/thành --</option>
+                        <option value="ha-noi">Hà Nội</option>
+                        <option value="tp-hcm">TP. Hồ Chí Minh</option>
+                        <option value="da-nang">Đà Nẵng</option>
+                        <option value="hai-phong">Hải Phòng</option>
+                        <option value="can-tho">Cần Thơ</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="district">Quận/Huyện:</label>
+                    <select id="district" name="district" required>
+                        <option value="">-- Chọn quận/huyện --</option>
+                        <option value="quan-1">Quận 1</option>
+                        <option value="quan-2">Quận 2</option>
+                        <option value="quan-3">Quận 3</option>
+                        <option value="quan-cau-giay">Cầu Giấy</option>
+                        <option value="quan-hoan-kiem">Hoàn Kiếm</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="address">Địa chỉ chi tiết:</label>
+                    <textarea id="address" name="address" rows="3" required placeholder="Nhập số nhà, tên đường, phường/xã"></textarea>
+                </p>
+
+                <fieldset>
+                    <legend>Giới tính</legend>
+                    <p><input type="radio" id="genderMale" name="gender" value="male" required> <label for="genderMale">Nam</label></p>
+                    <p><input type="radio" id="genderFemale" name="gender" value="female"> <label for="genderFemale">Nữ</label></p>
+                    <p><input type="radio" id="genderOther" name="gender" value="other"> <label for="genderOther">Khác</label></p>
+                </fieldset>
+            </fieldset>
+
+            <p>
+                <input type="checkbox" id="agree" name="agree" required>
+                <label for="agree">Tôi đồng ý với điều khoản sử dụng và chính sách bảo mật</label>
+            </p>
+
+            <p>
+                <button type="submit">Đăng ký</button>
+                <button type="reset">Nhập lại</button>
+            </p>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Website E-Commerce</p>
+    </footer>
+</body>
+</html>
