@@ -2,7 +2,7 @@
 
 ## Sinh viên
 
-- Họ tên: Hoàng Hiếu
+- Họ tên: Lê Trần Tiến Bảo
 - Bài làm: Portfolio cá nhân responsive bằng HTML, CSS và JavaScript cơ bản
 
 ## Cấu trúc thư mục
