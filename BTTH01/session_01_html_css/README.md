@@ -107,23 +107,28 @@ Hoặc chạy bằng VS Code Live Server:
 
 ## Commit messages theo đúng convention
 
-Repo trong thư mục này đã có sẵn lịch sử commit mẫu theo yêu cầu. Nếu cần tự commit lại, dùng thứ tự sau:
+Repo trong thư mục này đã có sẵn lịch sử commit mẫu theo yêu cầu. Kiểm tra bằng lệnh:
 
 ```bash
-git add .
-git commit -m "[SETUP] Initialize project structure"
-git commit -m "[STYLE] Add base CSS variables and reset"
-git commit -m "[FEATURE] Implement header navigation"
-git commit -m "[FEATURE] Complete hero section with CTA"
-git commit -m "[STYLE] Create about section layout"
-git commit -m "[FEATURE] Add skills progress bars"
-git commit -m "[REFACTOR] Optimize responsive breakpoints"
-git commit -m "[FEATURE] Build portfolio grid layout"
-git commit -m "[UI] Add hover zoom effects"
-git commit -m "[FEATURE] Implement CSS-only lightbox"
-git commit -m "[FEATURE] Style contact form inputs"
-git commit -m "[FEATURE] Add responsive footer"
-git commit -m "[REFACTOR] Final responsive adjustments"
+git log --oneline --reverse
+```
+
+Kết quả cần có các commit sau:
+
+```txt
+[SETUP] Initialize project structure
+[STYLE] Add base CSS variables and reset
+[FEATURE] Implement header navigation
+[FEATURE] Complete hero section with CTA
+[STYLE] Create about section layout
+[FEATURE] Add skills progress bars
+[REFACTOR] Optimize responsive breakpoints
+[FEATURE] Build portfolio grid layout
+[UI] Add hover zoom effects
+[FEATURE] Implement CSS-only lightbox
+[FEATURE] Style contact form inputs
+[FEATURE] Add responsive footer
+[REFACTOR] Final responsive adjustments
 ```
 
 ## Checklist trước khi nộp
