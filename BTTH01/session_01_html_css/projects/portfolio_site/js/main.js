@@ -35,3 +35,5 @@ if (contactForm) {
         alert('Thank you! Your message has been sent.');
     });
 }
+
+// BTTH01 portfolio interactions completed
