@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Travel Mobile App">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#14b8a6"/>
+      <stop offset="1" stop-color="#22c55e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="20%" r="70%">
+      <stop offset="0" stop-color="#fff" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="300" rx="0" fill="url(#g)"/>
+  <rect width="400" height="300" fill="url(#glow)"/>
+  <circle cx="58" cy="58" r="70" fill="#fff" opacity=".1"/>
+  <circle cx="356" cy="258" r="92" fill="#fff" opacity=".1"/>
+  <rect x="156" y="82" width="128" height="236" rx="30" fill="none" stroke="#fff" stroke-width="14"/><circle cx="220" cy="288" r="8" fill="#fff"/><path d="M183 145c36-28 72-17 88 19-51 8-76 38-88 86-26-39-27-79 0-105z" fill="#fff" opacity=".9"/>
+  <text x="28" y="246" fill="#fff" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="800">Travel</text>
+  <text x="28" y="274" fill="#fff" opacity=".82" font-family="Segoe UI, Arial, sans-serif" font-size="17">Mobile App</text>
+</svg>
