@@ -108,3 +108,8 @@ Hoặc chạy bằng VS Code Live Server:
 
 ## Student Information
 - Name: Lê Trần Tiến Bảo
+
+## Run Portfolio Site
+cd projects/portfolio_site
+npm install
+npm run dev
