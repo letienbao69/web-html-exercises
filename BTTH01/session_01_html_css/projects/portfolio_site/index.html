@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive personal portfolio website built with HTML, CSS Grid, Flexbox, and light JavaScript.">
+    <title>Lê Trần Tiến Bảo | Portfolio</title>
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+    <header class="site-header">
+        <a href="#home" class="logo" aria-label="Go to home">Lê Trần Tiến Bảo</a>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+        <label for="menu-toggle" class="menu-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav class="main-nav" aria-label="Primary navigation">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero" aria-label="Hero section">
+            <div class="hero-content">
+                <p class="eyebrow">Personal Portfolio</p>
+                <h1>Hi, I'm <span>Lê Trần Tiến Bảo</span></h1>
+                <p class="hero-subtitle">Full-Stack Developer | UI Designer | Problem Solver</p>
+                <a href="#portfolio" class="cta-button">View My Work</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section section-padding">
+            <div class="container">
+                <div class="section-heading left-heading">
+                    <p class="section-kicker">Who I Am</p>
+                    <h2>About Me</h2>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="assets/profile.svg" alt="Profile illustration of Lê Trần Tiến Bảo">
+                    </div>
+
+                    <div class="about-content">
+                        <p class="lead">I'm a passionate developer with 3+ years of experience building clean, responsive, and user-friendly web applications.</p>
+                        <p>
+                            I specialize in frontend development with React and Vue, and I also work with backend technologies such as Node.js, Java Spring Boot, and REST APIs. I enjoy turning ideas into polished digital products that are simple to use and easy to maintain.
+                        </p>
+                        <div class="about-stats" aria-label="Portfolio statistics">
+                            <div>
+                                <strong>12+</strong>
+                                <span>Projects</span>
+                            </div>
+                            <div>
+                                <strong>3+</strong>
+                                <span>Years</span>
+                            </div>
+                            <div>
+                                <strong>100%</strong>
+                                <span>Responsive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section section-padding">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-kicker">What I Use</p>
+                    <h2>My Skills</h2>
+                </div>
+
+                <div class="skills-grid">
+                    <article class="skill-item">
+                        <div class="skill-meta">
+                            <span class="skill-name">HTML5</span>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="skill-bar" aria-label="HTML5 skill level 95 percent">
+                            <div class="skill-progress" data-width="95%"></div>
+                        </div>
+                    </article>
+
+                    <article class="skill-item">
+                        <div class="skill-meta">
+                            <span class="skill-name">CSS3</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar" aria-label="CSS3 skill level 90 percent">
+                            <div class="skill-progress" data-width="90%"></div>
+                        </div>
+                    </article>
+
+                    <article class="skill-item">
+                        <div class="skill-meta">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar" aria-label="JavaScript skill level 85 percent">
+                            <div class="skill-progress" data-width="85%"></div>
+                        </div>
+                    </article>
+
+                    <article class="skill-item">
+                        <div class="skill-meta">
+                            <span class="skill-name">React</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar" aria-label="React skill level 80 percent">
+                            <div class="skill-progress" data-width="80%"></div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio-section section-padding">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-kicker">Recent Work</p>
+                    <h2>My Portfolio</h2>
+                </div>
+
+                <div class="portfolio-filters" aria-label="Portfolio filters">
+                    <button class="filter-btn active" type="button">All</button>
+                    <button class="filter-btn" type="button">Web</button>
+                    <button class="filter-btn" type="button">Mobile</button>
+                    <button class="filter-btn" type="button">Design</button>
+                </div>
+
+                <div class="portfolio-grid">
+                    <article class="portfolio-item" data-category="web">
+                        <a href="#lightbox-1" class="lightbox-link" aria-label="Open E-Commerce Website preview">
+                            <img src="assets/project-1.svg" alt="E-Commerce Website preview">
+                            <div class="portfolio-overlay">
+                                <h3>E-Commerce Website</h3>
+                                <p>React + Node.js</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="portfolio-item" data-category="web">
+                        <a href="#lightbox-2" class="lightbox-link" aria-label="Open Food Ordering System preview">
+                            <img src="assets/project-2.svg" alt="Food Ordering System preview">
+                            <div class="portfolio-overlay">
+                                <h3>Food Ordering System</h3>
+                                <p>Spring Boot + MySQL</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="portfolio-item" data-category="web">
+                        <a href="#lightbox-3" class="lightbox-link" aria-label="Open Admin Dashboard preview">
+                            <img src="assets/project-3.svg" alt="Admin Dashboard preview">
+                            <div class="portfolio-overlay">
+                                <h3>Admin Dashboard</h3>
+                                <p>Vue + REST API</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="portfolio-item" data-category="mobile">
+                        <a href="#lightbox-4" class="lightbox-link" aria-label="Open Travel Mobile App preview">
+                            <img src="assets/project-4.svg" alt="Travel Mobile App preview">
+                            <div class="portfolio-overlay">
+                                <h3>Travel Mobile App</h3>
+                                <p>Mobile UI Concept</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="portfolio-item" data-category="mobile">
+                        <a href="#lightbox-5" class="lightbox-link" aria-label="Open Finance Mobile App preview">
+                            <img src="assets/project-5.svg" alt="Finance Mobile App preview">
+                            <div class="portfolio-overlay">
+                                <h3>Finance Mobile App</h3>
+                                <p>UX Flow + Prototype</p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="portfolio-item" data-category="design">
+                        <a href="#lightbox-6" class="lightbox-link" aria-label="Open Brand Identity preview">
+                            <img src="assets/project-6.svg" alt="Brand Identity preview">
+                            <div class="portfolio-overlay">
+                                <h3>Brand Identity</h3>
+                                <p>Design System</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+
+            <div id="lightbox-1" class="lightbox" aria-label="E-Commerce Website lightbox">
+                <img src="assets/project-1.svg" alt="Large E-Commerce Website preview">
+                <a href="#portfolio" class="lightbox-close" aria-label="Close lightbox">&times;</a>
+            </div>
+            <div id="lightbox-2" class="lightbox" aria-label="Food Ordering System lightbox">
+                <img src="assets/project-2.svg" alt="Large Food Ordering System preview">
+                <a href="#portfolio" class="lightbox-close" aria-label="Close lightbox">&times;</a>
+            </div>
+            <div id="lightbox-3" class="lightbox" aria-label="Admin Dashboard lightbox">
+                <img src="assets/project-3.svg" alt="Large Admin Dashboard preview">
+                <a href="#portfolio" class="lightbox-close" aria-label="Close lightbox">&times;</a>
+            </div>
+            <div id="lightbox-4" class="lightbox" aria-label="Travel Mobile App lightbox">
+                <img src="assets/project-4.svg" alt="Large Travel Mobile App preview">
+                <a href="#portfolio" class="lightbox-close" aria-label="Close lightbox">&times;</a>
+            </div>
+            <div id="lightbox-5" class="lightbox" aria-label="Finance Mobile App lightbox">
+                <img src="assets/project-5.svg" alt="Large Finance Mobile App preview">
+                <a href="#portfolio" class="lightbox-close" aria-label="Close lightbox">&times;</a>
+            </div>
+            <div id="lightbox-6" class="lightbox" aria-label="Brand Identity lightbox">
+                <img src="assets/project-6.svg" alt="Large Brand Identity preview">
+                <a href="#portfolio" class="lightbox-close" aria-label="Close lightbox">&times;</a>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section section-padding">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="section-kicker">Let's Talk</p>
+                    <h2>Get In Touch</h2>
+                </div>
+
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p>Feel free to reach out. I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="icon">📧</span>
+                                <span>tienbao.dev@example.com</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">📍</span>
+                                <span>Hanoi, Vietnam</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">💼</span>
+                                <span>Available for freelance</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required minlength="2">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required minlength="10"></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message <span aria-hidden="true">→</span></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="#home" class="footer-logo">Lê Trần Tiến Bảo</a>
+                <p class="footer-tagline">Building digital experiences</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0112 5.8c1.02.01 2.05.14 3.01.41 2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.82.58A12.01 12.01 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:tienbao.dev@example.com" class="social-link" aria-label="Email">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lê Trần Tiến Bảo. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
