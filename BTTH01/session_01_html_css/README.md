@@ -105,3 +105,6 @@ Hoặc chạy bằng VS Code Live Server:
 - Social icons có hover scale/color.
 - Có copyright text.
 
+
+## Student Information
+- Name: Lê Trần Tiến Bảo
