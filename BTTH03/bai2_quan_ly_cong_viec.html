@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quản Lý Công Việc Cá Nhân</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      color: #2d3748;
+      min-height: 100vh;
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      background: linear-gradient(135deg, #6c3fc5, #4a1f8a);
+      color: #fff;
+      padding: 20px 30px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    header .logo { font-size: 2rem; }
+    header h1 { font-size: 1.6rem; font-weight: 700; }
+    header p  { font-size: 0.85rem; opacity: 0.85; margin-top: 2px; }
+
+    .container { max-width: 1050px; margin: 30px auto; padding: 0 20px; }
+
+    /* ========== STATS ========== */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px 18px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .stat-card:nth-child(1) { border-top: 4px solid #6c3fc5; }
+    .stat-card:nth-child(2) { border-top: 4px solid #34a853; }
+    .stat-card:nth-child(3) { border-top: 4px solid #ea4335; }
+    .stat-card:nth-child(4) { border-top: 4px solid #fbbc04; }
+    .stat-num   { font-size: 2rem; font-weight: 700; }
+    .stat-card:nth-child(1) .stat-num { color: #6c3fc5; }
+    .stat-card:nth-child(2) .stat-num { color: #34a853; }
+    .stat-card:nth-child(3) .stat-num { color: #ea4335; }
+    .stat-card:nth-child(4) .stat-num { color: #f57c00; }
+    .stat-label { font-size: 0.82rem; color: #718096; margin-top: 4px; }
+
+    /* ========== TOOLBAR ========== */
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .toolbar h2 { font-size: 1.2rem; }
+
+    /* ========== BUTTONS ========== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .btn-primary   { background: #6c3fc5; color: #fff; }
+    .btn-primary:hover { background: #5530a0; transform: translateY(-1px); }
+    .btn-success   { background: #34a853; color: #fff; }
+    .btn-success:hover { background: #2d8e47; }
+    .btn-warning   { background: #fbbc04; color: #1a202c; }
+    .btn-warning:hover { background: #e5a700; }
+    .btn-danger    { background: #ea4335; color: #fff; }
+    .btn-danger:hover  { background: #c5221f; }
+    .btn-secondary { background: #e2e8f0; color: #4a5568; }
+    .btn-secondary:hover { background: #cbd5e0; }
+    .btn-sm { padding: 5px 11px; font-size: 0.78rem; }
+
+    /* ========== TASK LIST ========== */
+    #task-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    /* ========== TASK CARD ========== */
+    .task-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-left: 5px solid #6c3fc5;
+      transition: transform 0.15s, box-shadow 0.15s;
+      position: relative;
+    }
+    .task-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+    .task-card.done  { border-left-color: #34a853; opacity: 0.75; }
+    .task-card.priority-cao    { border-left-color: #ea4335; }
+    .task-card.priority-trung  { border-left-color: #fbbc04; }
+    .task-card.priority-thap   { border-left-color: #34a853; }
+
+    .task-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .task-checkbox {
+      width: 20px; height: 20px;
+      cursor: pointer;
+      accent-color: #6c3fc5;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .task-title {
+      font-size: 1rem;
+      font-weight: 700;
+      flex: 1;
+      word-break: break-word;
+    }
+    .task-card.done .task-title { text-decoration: line-through; color: #a0aec0; }
+    .task-desc { font-size: 0.85rem; color: #718096; line-height: 1.5; }
+
+    .task-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 9px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .badge-purple  { background: #ede9fe; color: #5b21b6; }
+    .badge-red     { background: #fee2e2; color: #991b1b; }
+    .badge-yellow  { background: #fef3c7; color: #92400e; }
+    .badge-green   { background: #d1fae5; color: #065f46; }
+    .badge-blue    { background: #dbeafe; color: #1d4ed8; }
+    .badge-gray    { background: #f1f5f9; color: #64748b; }
+    .deadline {
+      font-size: 0.78rem;
+      color: #718096;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .deadline.overdue { color: #ea4335; font-weight: 600; }
+
+    .task-actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      color: #a0aec0;
+    }
+    .empty-state .icon { font-size: 3rem; margin-bottom: 10px; }
+    .empty-state p { font-size: 0.95rem; }
+
+    /* ========== MODAL ========== */
+    .modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(3px);
+    }
+    .modal-overlay.active { display: flex; }
+    .modal {
+      background: #fff;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 500px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: slideIn 0.25s ease;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(-30px); opacity: 0; }
+      to   { transform: translateY(0); opacity: 1; }
+    }
+    .modal-header {
+      background: linear-gradient(135deg, #6c3fc5, #4a1f8a);
+      color: #fff;
+      padding: 20px 24px;
+      border-radius: 16px 16px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-header h3 { font-size: 1.1rem; }
+    .modal-close {
+      background: rgba(255,255,255,0.2);
+      border: none; color: #fff;
+      width: 30px; height: 30px;
+      border-radius: 50%; cursor: pointer;
+      font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: rgba(255,255,255,0.35); }
+    .modal-body { padding: 24px; }
+
+    /* ========== FORM ========== */
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .form-group label { font-size: 0.85rem; font-weight: 600; color: #4a5568; }
+    .form-group label span.req { color: #ea4335; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 9px 12px;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: #6c3fc5; }
+    .form-group input.error,
+    .form-group select.error { border-color: #ea4335; }
+    textarea { resize: vertical; min-height: 80px; }
+    .error-msg { font-size: 0.78rem; color: #ea4335; min-height: 16px; }
+    .form-footer { display: flex; justify-content: flex-end; gap: 10px; margin-top: 6px; }
+
+    /* ========== TOAST ========== */
+    #toast-container {
+      position: fixed;
+      top: 20px; right: 20px;
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .toast {
+      padding: 12px 20px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      display: flex; align-items: center; gap: 8px;
+      animation: toastIn 0.3s ease;
+      min-width: 240px;
+    }
+    @keyframes toastIn {
+      from { transform: translateX(60px); opacity: 0; }
+      to   { transform: translateX(0); opacity: 1; }
+    }
+    .toast.success { background: #34a853; }
+    .toast.error   { background: #ea4335; }
+    .toast.info    { background: #6c3fc5; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">📋</div>
+  <div>
+    <h1>Quản Lý Công Việc Cá Nhân</h1>
+    <p>To-Do App &nbsp;|&nbsp; Lê Trần Tiến Bảo – 2251172247 – 64KTPM5</p>
+  </div>
+</header>
+
+<div id="toast-container"></div>
+
+<div class="container">
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-num" id="stat-total">0</div>
+      <div class="stat-label">Tổng công việc</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="stat-done">0</div>
+      <div class="stat-label">Đã hoàn thành</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="stat-pending">0</div>
+      <div class="stat-label">Chưa hoàn thành</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="stat-overdue">0</div>
+      <div class="stat-label">Quá hạn</div>
+    </div>
+  </div>
+
+  <!-- TOOLBAR -->
+  <div class="toolbar">
+    <h2>📌 Danh Sách Công Việc</h2>
+    <button class="btn btn-primary" id="btn-open-add">➕ Thêm Công Việc</button>
+  </div>
+
+  <!-- TASK LIST -->
+  <div id="task-list"></div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="modal-title">➕ Thêm Công Việc Mới</h3>
+      <button class="modal-close" id="btn-close-modal">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="form-group">
+        <label>Tiêu đề <span class="req">*</span></label>
+        <input type="text" id="f-title" placeholder="Nhập tiêu đề công việc..." />
+        <span class="error-msg" id="err-title"></span>
+      </div>
+
+      <div class="form-group">
+        <label>Mô tả ngắn</label>
+        <textarea id="f-desc" placeholder="Mô tả chi tiết công việc..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Hạn hoàn thành <span class="req">*</span></label>
+        <input type="date" id="f-deadline" />
+        <span class="error-msg" id="err-deadline"></span>
+      </div>
+
+      <div class="form-group">
+        <label>Mức ưu tiên <span class="req">*</span></label>
+        <select id="f-priority">
+          <option value="">-- Chọn mức ưu tiên --</option>
+          <option value="cao">🔴 Cao</option>
+          <option value="trung">🟡 Trung bình</option>
+          <option value="thap">🟢 Thấp</option>
+        </select>
+        <span class="error-msg" id="err-priority"></span>
+      </div>
+
+      <div class="form-footer">
+        <button class="btn btn-secondary" id="btn-cancel">Hủy</button>
+        <button class="btn btn-primary" id="btn-save">💾 Lưu</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* =========================================================
+     DATA & STATE
+  ========================================================= */
+  const STORAGE_KEY = 'tasks_btth03';
+  let tasks = [];
+  let editingId = null;
+
+  /* =========================================================
+     INIT
+  ========================================================= */
+  window.addEventListener('DOMContentLoaded', () => {
+    loadFromStorage();
+    renderTasks();
+    updateTaskSummary();
+    bindEvents();
+  });
+
+  /* =========================================================
+     LOCAL STORAGE
+  ========================================================= */
+  function loadFromStorage() {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    tasks = raw ? JSON.parse(raw) : getSampleData();
+    if (!raw) saveTasks();
+  }
+
+  function saveTasks() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+  }
+
+  function getSampleData() {
+    const today = new Date();
+    const fmt = d => d.toISOString().split('T')[0];
+    const addDays = n => { const d = new Date(today); d.setDate(d.getDate() + n); return fmt(d); };
+    return [
+      { id: 1, title: 'Hoàn thiện báo cáo môn CSE391', desc: 'Viết báo cáo bài thực hành HTML/CSS/JS', deadline: addDays(3),  priority: 'cao',   done: false },
+      { id: 2, title: 'Ôn tập giữa kỳ môn Toán rời rạc', desc: 'Ôn chương 3, 4 và làm đề cương', deadline: addDays(5),  priority: 'trung', done: false },
+      { id: 3, title: 'Nộp học phí học kỳ 2', desc: '',                                             deadline: addDays(-2), priority: 'cao',   done: true  },
+    ];
+  }
+
+  /* =========================================================
+     RENDER
+  ========================================================= */
+  function renderTasks() {
+    const container = document.getElementById('task-list');
+    if (tasks.length === 0) {
+      container.innerHTML = `
+        <div class="empty-state">
+          <div class="icon">📭</div>
+          <p>Chưa có công việc nào. Nhấn "Thêm Công Việc" để bắt đầu!</p>
+        </div>`;
+      return;
+    }
+
+    const today = new Date(); today.setHours(0,0,0,0);
+
+    container.innerHTML = tasks.map(t => {
+      const dl = new Date(t.deadline); dl.setHours(0,0,0,0);
+      const isOverdue = !t.done && dl < today;
+      const dlStr = dl.toLocaleDateString('vi-VN');
+
+      const priorityBadge = {
+        cao:   '<span class="badge badge-red">🔴 Cao</span>',
+        trung: '<span class="badge badge-yellow">🟡 Trung bình</span>',
+        thap:  '<span class="badge badge-green">🟢 Thấp</span>',
+      }[t.priority] || '';
+
+      const statusBadge = t.done
+        ? '<span class="badge badge-blue">✅ Hoàn thành</span>'
+        : isOverdue
+          ? '<span class="badge badge-red">⚠️ Quá hạn</span>'
+          : '<span class="badge badge-gray">🕐 Đang làm</span>';
+
+      return `
+        <div class="task-card ${t.done ? 'done' : ''} priority-${t.priority}" id="card-${t.id}">
+          <div class="task-header">
+            <input type="checkbox" class="task-checkbox" ${t.done ? 'checked' : ''}
+              onchange="toggleDone(${t.id})" title="Đánh dấu hoàn thành" />
+            <div class="task-title">${escHtml(t.title)}</div>
+          </div>
+          ${t.desc ? `<div class="task-desc">${escHtml(t.desc)}</div>` : ''}
+          <div class="task-meta">
+            ${priorityBadge}
+            ${statusBadge}
+            <span class="deadline ${isOverdue ? 'overdue' : ''}">📅 ${dlStr}${isOverdue ? ' (Quá hạn)' : ''}</span>
+          </div>
+          <div class="task-actions">
+            <button class="btn btn-warning btn-sm" onclick="openEdit(${t.id})">✏️ Sửa</button>
+            <button class="btn btn-danger  btn-sm" onclick="deleteTask(${t.id})">🗑 Xóa</button>
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  /* =========================================================
+     STATISTICS
+  ========================================================= */
+  function updateTaskSummary() {
+    const today = new Date(); today.setHours(0,0,0,0);
+    const total   = tasks.length;
+    const done    = tasks.filter(t => t.done).length;
+    const pending = total - done;
+    const overdue = tasks.filter(t => {
+      if (t.done) return false;
+      const dl = new Date(t.deadline); dl.setHours(0,0,0,0);
+      return dl < today;
+    }).length;
+
+    document.getElementById('stat-total').textContent   = total;
+    document.getElementById('stat-done').textContent    = done;
+    document.getElementById('stat-pending').textContent = pending;
+    document.getElementById('stat-overdue').textContent = overdue;
+  }
+
+  /* =========================================================
+     EVENTS
+  ========================================================= */
+  function bindEvents() {
+    document.getElementById('btn-open-add').addEventListener('click', openAdd);
+    document.getElementById('btn-close-modal').addEventListener('click', closeModal);
+    document.getElementById('btn-cancel').addEventListener('click', closeModal);
+    document.getElementById('btn-save').addEventListener('click', handleSave);
+    document.getElementById('modal-overlay').addEventListener('click', e => {
+      if (e.target === document.getElementById('modal-overlay')) closeModal();
+    });
+  }
+
+  /* =========================================================
+     MODAL
+  ========================================================= */
+  function openAdd() {
+    editingId = null;
+    resetForm();
+    document.getElementById('modal-title').textContent = '➕ Thêm Công Việc Mới';
+    document.getElementById('btn-save').textContent    = '💾 Lưu';
+    document.getElementById('modal-overlay').classList.add('active');
+    document.getElementById('f-title').focus();
+  }
+
+  function openEdit(id) {
+    const t = tasks.find(x => x.id === id);
+    if (!t) return;
+    editingId = id;
+    document.getElementById('f-title').value    = t.title;
+    document.getElementById('f-desc').value     = t.desc;
+    document.getElementById('f-deadline').value = t.deadline;
+    document.getElementById('f-priority').value = t.priority;
+    clearErrors();
+    document.getElementById('modal-title').textContent = '✏️ Cập Nhật Công Việc';
+    document.getElementById('btn-save').textContent    = '💾 Cập Nhật';
+    document.getElementById('modal-overlay').classList.add('active');
+  }
+
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('active');
+    resetForm();
+    editingId = null;
+  }
+
+  /* =========================================================
+     VALIDATION
+  ========================================================= */
+  function validateForm() {
+    let valid = true;
+    clearErrors();
+
+    const title    = document.getElementById('f-title').value.trim();
+    const deadline = document.getElementById('f-deadline').value;
+    const priority = document.getElementById('f-priority').value;
+
+    if (!title) {
+      showError('title', 'Vui lòng nhập tiêu đề công việc.'); valid = false;
+    } else if (title.length < 3) {
+      showError('title', 'Tiêu đề phải từ 3 ký tự trở lên.'); valid = false;
+    } else if (title.length > 100) {
+      showError('title', 'Tiêu đề không được vượt quá 100 ký tự.'); valid = false;
+    }
+
+    if (!deadline) {
+      showError('deadline', 'Vui lòng chọn hạn hoàn thành.'); valid = false;
+    }
+
+    if (!priority) {
+      showError('priority', 'Vui lòng chọn mức ưu tiên.'); valid = false;
+    }
+
+    return valid;
+  }
+
+  function showError(field, msg) {
+    const el = document.getElementById('f-' + field);
+    if (el) el.classList.add('error');
+    const errEl = document.getElementById('err-' + field);
+    if (errEl) errEl.textContent = msg;
+  }
+
+  function clearErrors() {
+    ['title','deadline','priority'].forEach(f => {
+      const el = document.getElementById('f-' + f);
+      if (el) el.classList.remove('error');
+      const errEl = document.getElementById('err-' + f);
+      if (errEl) errEl.textContent = '';
+    });
+  }
+
+  /* =========================================================
+     SAVE
+  ========================================================= */
+  function handleSave() {
+    if (!validateForm()) return;
+
+    const task = {
+      title:    document.getElementById('f-title').value.trim(),
+      desc:     document.getElementById('f-desc').value.trim(),
+      deadline: document.getElementById('f-deadline').value,
+      priority: document.getElementById('f-priority').value,
+    };
+
+    if (editingId === null) {
+      task.id   = Date.now();
+      task.done = false;
+      tasks.push(task);
+      showToast('Thêm công việc thành công!', 'success');
+    } else {
+      const idx = tasks.findIndex(x => x.id === editingId);
+      task.id   = editingId;
+      task.done = tasks[idx].done;
+      tasks[idx] = task;
+      showToast('Cập nhật công việc thành công!', 'success');
+    }
+
+    saveTasks();
+    renderTasks();
+    updateTaskSummary();
+    closeModal();
+  }
+
+  /* =========================================================
+     DELETE
+  ========================================================= */
+  function deleteTask(id) {
+    const t = tasks.find(x => x.id === id);
+    if (!t) return;
+    if (!confirm(`Bạn có chắc muốn xóa công việc:\n"${t.title}"?\nHành động này không thể hoàn tác.`)) return;
+    tasks = tasks.filter(x => x.id !== id);
+    saveTasks();
+    renderTasks();
+    updateTaskSummary();
+    showToast('Đã xóa công việc!', 'info');
+  }
+
+  /* =========================================================
+     TOGGLE DONE
+  ========================================================= */
+  function toggleDone(id) {
+    const t = tasks.find(x => x.id === id);
+    if (!t) return;
+    t.done = !t.done;
+    saveTasks();
+    renderTasks();
+    updateTaskSummary();
+    showToast(t.done ? '✅ Đã đánh dấu hoàn thành!' : '🔄 Đã chuyển về chưa hoàn thành!', 'success');
+  }
+
+  /* =========================================================
+     RESET FORM
+  ========================================================= */
+  function resetForm() {
+    document.getElementById('f-title').value    = '';
+    document.getElementById('f-desc').value     = '';
+    document.getElementById('f-deadline').value = '';
+    document.getElementById('f-priority').value = '';
+    clearErrors();
+  }
+
+  /* =========================================================
+     TOAST
+  ========================================================= */
+  function showToast(msg, type = 'success') {
+    const icons = { success: '✅', error: '❌', info: 'ℹ️' };
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerHTML = `<span>${icons[type]}</span><span>${msg}</span>`;
+    container.appendChild(toast);
+    setTimeout(() => { toast.style.opacity = '0'; toast.style.transition = 'opacity 0.4s'; }, 2600);
+    setTimeout(() => toast.remove(), 3000);
+  }
+
+  /* =========================================================
+     UTILS
+  ========================================================= */
+  function escHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+</script>
+</body>
+</html>
