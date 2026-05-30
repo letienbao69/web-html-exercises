@@ -67,3 +67,4 @@ function Contact() {
 export default Contact;
 
 // handle change
+// validate form
