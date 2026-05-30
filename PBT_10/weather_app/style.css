@@ -1,0 +1,30 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;
+}
+.card { background: #fff; padding: 32px; border-radius: 20px; width: 100%; max-width: 420px; box-shadow: 0 20px 50px rgba(0,0,0,.2); }
+h1 { text-align: center; margin-bottom: 20px; }
+#searchForm { display: flex; gap: 8px; margin-bottom: 20px; }
+#cityInput { flex: 1; padding: 10px 14px; border: 2px solid #e5e7eb; border-radius: 8px; outline: none; }
+#cityInput:focus { border-color: #4facfe; }
+#searchForm button { padding: 10px 18px; border: none; background: #4facfe; color: #fff; border-radius: 8px; cursor: pointer; font-weight: 600; }
+
+.state { text-align: center; padding: 16px; }
+.hidden { display: none; }
+.spinner { width: 40px; height: 40px; margin: 0 auto 12px; border: 4px solid #e5e7eb; border-top-color: #4facfe; border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+#error { color: #dc2626; background: #fef2f2; border-radius: 8px; }
+
+.temp { font-size: 48px; font-weight: 700; color: #1f2937; }
+.desc { font-size: 18px; color: #6b7280; margin: 4px 0; }
+.meta { display: flex; justify-content: space-around; margin-top: 16px; }
+.meta div { font-size: 14px; color: #374151; }
+
+.history { margin-top: 24px; border-top: 1px solid #eee; padding-top: 16px; }
+.history h3 { font-size: 14px; color: #6b7280; margin-bottom: 8px; }
+#historyList { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+#historyList li { background: #eff6ff; color: #2563eb; padding: 4px 12px; border-radius: 999px; cursor: pointer; font-size: 14px; }
+#historyList li:hover { background: #dbeafe; }
