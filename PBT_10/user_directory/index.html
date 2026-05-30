@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Directory</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>👥 User Directory</h1>
+    <div class="actions">
+      <input id="search" type="text" placeholder="Tìm theo tên / email...">
+      <button id="addBtn">+ Thêm user</button>
+    </div>
+  </header>
+
+  <div id="toast" class="toast hidden"></div>
+  <main id="userGrid" class="grid"></main>
+
+  <!-- Form modal (ẩn) -->
+  <div id="modalRoot"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
