@@ -1,0 +1,10 @@
+// ============================================
+// style.scss — file CHÍNH, import các partial
+// Compile:  sass scss/style.scss scss/style.css
+// ============================================
+@use 'variables';
+@use 'mixins';
+@use 'components';
+
+// (Các partial trên đã chứa toàn bộ style.
+//  File main chỉ tập hợp lại — đây là cấu trúc 7-1 rút gọn.)

@@ -1,0 +1,93 @@
+// ============================================
+// _components.scss — style các thành phần
+// Dùng Variables + Nesting + parent selector & + Mixins
+// ============================================
+@use 'variables' as *;
+@use 'mixins' as *;
+
+body {
+  font-family: $font-primary;
+  background: $light-bg;
+  color: $text-color;
+  margin: 0;
+}
+
+// ---- Header (nesting) ----
+.header {
+  background: $dark;
+  color: #fff;
+  padding: $spacing-md;
+  @include flex-center;
+  justify-content: space-between;
+
+  .logo {
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 $spacing-sm;
+
+    &:hover { color: lighten($primary-color, 20%); }   // parent selector &
+  }
+}
+
+// ---- Card (nesting + & + &.modifier) ----
+.card {
+  background: #fff;
+  border-radius: $radius;
+  padding: $spacing-md;
+  overflow: hidden;
+  @include card-shadow;
+
+  .card-image {
+    width: 100%;
+    height: auto;
+    border-radius: $radius - 4px;
+  }
+
+  .card-title {
+    margin: $spacing-sm 0;
+    font-size: 16px;
+  }
+
+  &:hover {                          // trạng thái hover
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .18);
+  }
+
+  &.featured {                       // biến thể .card.featured
+    border: 2px solid $secondary-color;
+  }
+}
+
+// ---- Button ----
+.buy-btn {
+  background: $primary-color;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: $spacing-sm $spacing-md;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover { background-color: darken($primary-color, 12%); }
+}
+
+// ---- Product grid: dùng mixin respond-to (Mobile-First) ----
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;        // mobile: 1 cột
+  gap: $spacing-md;
+  padding: $spacing-md;
+
+  @include respond-to(tablet) {
+    grid-template-columns: repeat(2, 1fr);   // tablet: 2 cột
+  }
+  @include respond-to(desktop) {
+    grid-template-columns: repeat(4, 1fr);   // desktop: 4 cột
+  }
+}

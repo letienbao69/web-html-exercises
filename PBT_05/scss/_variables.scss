@@ -1,0 +1,25 @@
+// ============================================
+// _variables.scss — biến dùng chung toàn dự án
+// ============================================
+
+// Màu sắc
+$primary-color:   #2563eb;
+$secondary-color: #dc2626;
+$dark:            #111827;
+$light-bg:        #f4f5f7;
+$text-color:      #1f2937;
+
+// Font
+$font-primary: 'Segoe UI', system-ui, sans-serif;
+
+// Breakpoints
+$breakpoint-tablet:  768px;
+$breakpoint-desktop: 1024px;
+
+// Spacing
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 32px;
+
+// Bo góc
+$radius: 10px;

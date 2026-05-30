@@ -1,0 +1,28 @@
+// ============================================
+// _mixins.scss — các mixin tái sử dụng
+// ============================================
+@use 'variables' as *;
+
+// 1. Responsive helper: @include respond-to(tablet) { ... }
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == tablet {
+    @media (min-width: $breakpoint-tablet) { @content; }
+  } @else if $breakpoint == desktop {
+    @media (min-width: $breakpoint-desktop) { @content; }
+  } @else {
+    @warn "Breakpoint '#{$breakpoint}' không hợp lệ.";
+  }
+}
+
+// 2. Căn giữa bằng flex
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// 3. Đổ bóng card
+@mixin card-shadow {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
