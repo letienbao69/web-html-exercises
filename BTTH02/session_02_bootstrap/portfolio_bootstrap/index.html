@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="vi" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lê Trần Tiến Bảo — Portfolio (Bootstrap 5)</title>
+
+  <!-- Google Font Inter (Bài 2.4) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 CSS (Bài 2.1) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom teal theme (Bài 2.4) -->
+  <link href="css/custom-theme.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ================= NAVBAR (Bài 2.1) ================= -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home">
+        <span class="text-primary">Dev</span>Portfolio
+      </a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#about">Giới thiệu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Kỹ năng</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Dự án</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Liên hệ</a></li>
+          <li class="nav-item ms-lg-3"><a class="btn btn-primary" href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= HERO (Bài 2.1) ================= -->
+  <header id="home" class="hero-gradient text-white text-center min-vh-100 d-flex align-items-center">
+    <div class="container">
+      <p class="text-uppercase fw-semibold opacity-75 mb-2" style="letter-spacing:.2em;">Full-Stack Developer</p>
+      <h1 class="display-2 fw-bold mb-3">Xin chào, tôi là <span class="text-warning">Tiến Bảo</span></h1>
+      <p class="lead mb-4 opacity-75 mx-auto" style="max-width:640px;">
+        Sinh viên Kỹ thuật phần mềm — đam mê xây dựng giao diện web đẹp, responsive và dễ dùng.
+      </p>
+      <a href="#portfolio" class="btn btn-light btn-lg px-5 py-3 fw-semibold me-2">Xem dự án</a>
+      <a href="#contact" class="btn btn-outline-light btn-lg px-5 py-3 fw-semibold">Liên hệ</a>
+    </div>
+  </header>
+
+  <!-- ================= ABOUT (Bài 2.1 — grid) ================= -->
+  <section id="about" class="py-section">
+    <div class="container">
+      <h2 class="text-center mb-5">Giới thiệu</h2>
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5 text-center">
+          <img src="https://placehold.co/300x300/14b8a6/ffffff?text=Avatar"
+               class="rounded-circle img-fluid shadow" alt="Ảnh đại diện" style="max-width:300px;">
+        </div>
+        <div class="col-lg-7">
+          <p class="lead">Tôi là Lê Trần Tiến Bảo, sinh viên lớp 64KTPM5 — Đại học Thủy Lợi.</p>
+          <p>Tôi tập trung vào phát triển Frontend với HTML, CSS, JavaScript và Bootstrap. Tôi thích biến thiết kế thành sản phẩm chạy được, chú trọng trải nghiệm người dùng và khả năng responsive trên mọi thiết bị.</p>
+          <div class="row g-3 mt-2">
+            <div class="col-6 col-md-4">
+              <div class="border rounded-3 p-3 text-center">
+                <div class="display-6 fw-bold text-primary">15+</div>
+                <small class="text-secondary">Dự án</small>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="border rounded-3 p-3 text-center">
+                <div class="display-6 fw-bold text-primary">2+</div>
+                <small class="text-secondary">Năm học</small>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="border rounded-3 p-3 text-center">
+                <div class="display-6 fw-bold text-primary">10+</div>
+                <small class="text-secondary">Công nghệ</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS (Bài 2.1 — progress) ================= -->
+  <section id="skills" class="py-section bg-soft">
+    <div class="container">
+      <h2 class="text-center mb-5">Kỹ năng</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="mb-4">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="fw-semibold">HTML5</span><span class="text-primary fw-semibold">95%</span>
+            </div>
+            <div class="progress" style="height:12px;"><div class="progress-bar" style="width:95%"></div></div>
+          </div>
+          <div class="mb-4">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="fw-semibold">CSS3 / Bootstrap</span><span class="text-primary fw-semibold">90%</span>
+            </div>
+            <div class="progress" style="height:12px;"><div class="progress-bar" style="width:90%"></div></div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-4">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="fw-semibold">JavaScript</span><span class="text-primary fw-semibold">85%</span>
+            </div>
+            <div class="progress" style="height:12px;"><div class="progress-bar" style="width:85%"></div></div>
+          </div>
+          <div class="mb-4">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="fw-semibold">Git / GitHub</span><span class="text-primary fw-semibold">80%</span>
+            </div>
+            <div class="progress" style="height:12px;"><div class="progress-bar" style="width:80%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PORTFOLIO GRID (Bài 2.1 — row/col + card h-100) ================= -->
+  <section id="portfolio" class="py-section">
+    <div class="container">
+      <h2 class="text-center mb-5">Dự án nổi bật</h2>
+      <div class="row g-4">
+        <!-- 6 card: col-12 (mobile) / col-md-6 (tablet) / col-lg-4 (desktop) -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card card-hover h-100 overflow-hidden">
+            <img src="https://placehold.co/600x400/14b8a6/ffffff?text=E-Commerce" class="card-img-top" alt="Dự án 1">
+            <div class="card-body">
+              <span class="badge bg-primary mb-2">Web App</span>
+              <h5 class="card-title">Website E-Commerce</h5>
+              <p class="card-text text-secondary">Trang bán hàng với giỏ hàng, thanh toán — HTML, CSS, JS.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card card-hover h-100 overflow-hidden">
+            <img src="https://placehold.co/600x400/0d9488/ffffff?text=Todo+App" class="card-img-top" alt="Dự án 2">
+            <div class="card-body">
+              <span class="badge bg-primary mb-2">JavaScript</span>
+              <h5 class="card-title">Todo App</h5>
+              <p class="card-text text-secondary">Quản lý công việc với localStorage, filter, drag & drop.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card card-hover h-100 overflow-hidden">
+            <img src="https://placehold.co/600x400/0f766e/ffffff?text=Weather" class="card-img-top" alt="Dự án 3">
+            <div class="card-body">
+              <span class="badge bg-primary mb-2">API</span>
+              <h5 class="card-title">Weather App</h5>
+              <p class="card-text text-secondary">Tra cứu thời tiết realtime qua Fetch API + Open-Meteo.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card card-hover h-100 overflow-hidden">
+            <img src="https://placehold.co/600x400/14b8a6/ffffff?text=Dashboard" class="card-img-top" alt="Dự án 4">
+            <div class="card-body">
+              <span class="badge bg-primary mb-2">Dashboard</span>
+              <h5 class="card-title">Admin Dashboard</h5>
+              <p class="card-text text-secondary">Bảng điều khiển với biểu đồ, bảng dữ liệu responsive.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card card-hover h-100 overflow-hidden">
+            <img src="https://placehold.co/600x400/0d9488/ffffff?text=Landing" class="card-img-top" alt="Dự án 5">
+            <div class="card-body">
+              <span class="badge bg-primary mb-2">Landing</span>
+              <h5 class="card-title">Landing Page</h5>
+              <p class="card-text text-secondary">Trang giới thiệu sản phẩm, tối ưu chuyển đổi.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card card-hover h-100 overflow-hidden">
+            <img src="https://placehold.co/600x400/0f766e/ffffff?text=Gallery" class="card-img-top" alt="Dự án 6">
+            <div class="card-body">
+              <span class="badge bg-primary mb-2">UI</span>
+              <h5 class="card-title">Photo Gallery</h5>
+              <p class="card-text text-secondary">Thư viện ảnh infinite scroll + lightbox, lazy loading.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="py-section bg-soft">
+    <div class="container">
+      <h2 class="text-center mb-5">Liên hệ</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <div class="card p-4">
+            <div class="card-body">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Họ tên</label>
+                  <input type="text" class="form-control" placeholder="Tên của bạn">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" placeholder="ban@example.com">
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Lời nhắn</label>
+                  <textarea class="form-control" rows="4" placeholder="Nội dung..."></textarea>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-primary px-4">Gửi lời nhắn</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-dark text-white-50 text-center py-4">
+    <div class="container">
+      <div class="mb-2 fs-4">
+        <a href="#" class="text-white-50 mx-2"><i class="bi bi-github"></i></a>
+        <a href="#" class="text-white-50 mx-2"><i class="bi bi-linkedin"></i></a>
+        <a href="#" class="text-white-50 mx-2"><i class="bi bi-facebook"></i></a>
+      </div>
+      <p class="mb-0">© 2026 Lê Trần Tiến Bảo · 64KTPM5 · Đại học Thủy Lợi</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS bundle (Bài 2.1 — cần cho navbar toggle) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
