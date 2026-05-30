@@ -1,0 +1,122 @@
+/* =========================================================
+   custom-theme.css  —  Bài 2.4: Customize Bootstrap Theme
+   Đổi theme mặc định (indigo) sang TEAL/SLATE + font Inter.
+   Color palette:
+     Teal 500  #14b8a6  primary
+     Teal 600  #0d9488  primary hover
+     Teal 100  #ccfbf1  light bg
+     Slate 900 #0f172a  heading
+     Slate 700 #334155  body text
+     Slate 500 #64748b  secondary
+     Slate 200 #e2e8f0  border
+     Slate 50  #f8fafc  page bg
+   ========================================================= */
+
+:root {
+  /* --- Override Bootstrap primary (indigo -> teal) --- */
+  --bs-primary: #14b8a6;
+  --bs-primary-rgb: 20, 184, 166;
+  --bs-primary-hover: #0d9488;
+
+  /* --- Secondary: slate --- */
+  --bs-secondary: #64748b;
+  --bs-secondary-rgb: 100, 116, 139;
+
+  /* --- Custom tokens --- */
+  --teal-100: #ccfbf1;
+  --slate-900: #0f172a;
+  --slate-700: #334155;
+  --slate-200: #e2e8f0;
+  --slate-50: #f8fafc;
+  --custom-shadow: 0 4px 20px rgba(15, 23, 42, .08);
+
+  /* --- Typography --- */
+  --bs-body-font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --bs-body-color: var(--slate-700);
+  --bs-body-line-height: 1.6;
+
+  /* --- Border radius scale (cards rounder, btn vừa) --- */
+  --bs-border-radius: 0.625rem;     /* 10px inputs */
+  --bs-border-radius-sm: 0.5rem;    /* 8px buttons */
+  --bs-border-radius-lg: 1rem;      /* 16px cards  */
+}
+
+/* --- Page base (Bootstrap reboot override) --- */
+body {
+  font-family: var(--bs-body-font-family);
+  background-color: var(--slate-50);
+  color: var(--slate-700);
+}
+
+h1, h2, h3, h4, h5, h6 { color: var(--slate-900); font-weight: 700; }
+
+/* --- Custom spacing helper --- */
+.py-section { padding-top: 5rem; padding-bottom: 5rem; }
+
+/* --- Links --- */
+a { color: var(--bs-primary); }
+a:hover { color: var(--bs-primary-hover); }
+
+/* --- Buttons: teal + bo góc 8px --- */
+.btn { border-radius: var(--bs-border-radius-sm); font-weight: 600; }
+.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--bs-primary-hover);
+  border-color: var(--bs-primary-hover);
+}
+.btn-outline-primary {
+  color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+.btn-outline-primary:hover {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+/* --- Badges & utilities dùng primary --- */
+.bg-primary { background-color: var(--bs-primary) !important; }
+.text-primary { color: var(--bs-primary) !important; }
+
+/* --- Cards: bo 16px + bóng mềm, không viền --- */
+.card {
+  border: none;
+  border-radius: var(--bs-border-radius-lg);
+  box-shadow: var(--custom-shadow);
+}
+
+/* --- Inputs: bo 10px --- */
+.form-control,
+.form-select {
+  border-radius: var(--bs-border-radius);
+  border-color: var(--slate-200);
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 .25rem rgba(var(--bs-primary-rgb), .2);
+}
+
+/* --- Navbar: bóng nhẹ --- */
+.navbar { box-shadow: 0 2px 15px rgba(15, 23, 42, .05); }
+
+/* --- Progress bar dùng teal --- */
+.progress-bar { background-color: var(--bs-primary); }
+
+/* --- Hero gradient nền teal->slate (thay tím mặc định) --- */
+.hero-gradient {
+  background: linear-gradient(135deg, #14b8a6 0%, #0f766e 55%, #0f172a 100%);
+}
+
+/* --- Section nền nhạt --- */
+.bg-soft { background-color: var(--teal-100); }
+
+/* --- Hover nhẹ cho card portfolio --- */
+.card-hover { transition: transform .25s ease, box-shadow .25s ease; }
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, .14);
+}
