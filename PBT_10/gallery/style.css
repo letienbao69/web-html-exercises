@@ -1,0 +1,37 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #111827; color: #e5e7eb; }
+header { padding: 20px; text-align: center; }
+h1 { font-size: 22px; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;      /* mobile: 1 cột */
+  gap: 12px; padding: 0 16px 24px; max-width: 1200px; margin: 0 auto;
+}
+@media (min-width: 600px)  { .gallery { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .gallery { grid-template-columns: repeat(4, 1fr); } }
+
+.gallery img {
+  width: 100%; aspect-ratio: 1; object-fit: cover;
+  border-radius: 10px; background: #1f2937; cursor: pointer;
+  opacity: 0; transition: opacity 0.4s;
+}
+.gallery img.loaded { opacity: 1; }
+
+.load-indicator {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 20px; color: #9ca3af; visibility: hidden;
+}
+.load-indicator.active { visibility: visible; }
+.spinner { width: 24px; height: 24px; border: 3px solid #374151; border-top-color: #6366f1; border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+#trigger { height: 1px; }
+
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0; background: rgba(0,0,0,.9);
+  display: flex; align-items: center; justify-content: center; z-index: 100;
+}
+.lightbox.hidden { display: none; }
+.lightbox img { max-width: 90%; max-height: 85%; border-radius: 8px; }
+.lightbox .close { position: absolute; top: 20px; right: 30px; font-size: 40px; color: #fff; cursor: pointer; }
