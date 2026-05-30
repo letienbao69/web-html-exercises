@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyboard App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>⌨️ Keyboard Navigation Demo</h1>
+    <p class="hint">← → đổi ảnh · 1–9 nhảy ảnh · Space play/pause · Esc đóng · <kbd>Ctrl</kbd>+<kbd>K</kbd> command palette</p>
+  </header>
+
+  <main>
+    <section class="gallery" aria-label="Thư viện ảnh">
+      <button id="prevBtn" class="navBtn" aria-label="Ảnh trước">‹</button>
+      <figure>
+        <img id="galleryImg" src="" alt="Ảnh thư viện">
+        <figcaption id="caption" aria-live="polite"></figcaption>
+      </figure>
+      <button id="nextBtn" class="navBtn" aria-label="Ảnh sau">›</button>
+    </section>
+    <div class="status">
+      <span id="slideStatus" aria-live="polite">Slideshow: tắt</span>
+    </div>
+  </main>
+
+  <!-- Command palette overlay (ẩn mặc định) -->
+  <div id="palette" class="palette hidden" role="dialog" aria-modal="true" aria-label="Command palette">
+    <input id="paletteInput" type="text" placeholder="Gõ lệnh... (vd: next, dark, play)" aria-label="Tìm lệnh">
+    <ul id="paletteList" role="listbox"></ul>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
