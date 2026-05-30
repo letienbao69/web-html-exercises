@@ -1,0 +1,58 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: linear-gradient(135deg, #0ea5e9, #6366f1);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+#signupForm {
+  background: #fff;
+  padding: 32px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.25);
+}
+h1 { margin-bottom: 20px; font-size: 22px; }
+
+.field { margin-bottom: 16px; }
+.field label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.field input {
+  width: 100%; padding: 10px 12px;
+  border: 2px solid #e5e7eb; border-radius: 8px; font-size: 15px; outline: none;
+  transition: border-color 0.2s;
+}
+.field input:focus { border-color: #6366f1; }
+.field input.valid { border-color: #22c55e; }
+.field input.invalid { border-color: #ef4444; }
+
+.msg { display: block; font-size: 12px; margin-top: 4px; min-height: 16px; }
+.msg.ok { color: #16a34a; }
+.msg.err { color: #dc2626; }
+
+.strength { height: 6px; background: #e5e7eb; border-radius: 999px; margin-top: 8px; overflow: hidden; }
+#strengthBar { height: 100%; width: 0; transition: width 0.3s, background 0.3s; }
+
+button[type="submit"] {
+  width: 100%; padding: 12px; margin-top: 8px;
+  border: none; border-radius: 8px; font-size: 16px; font-weight: 600;
+  background: #6366f1; color: #fff; cursor: pointer;
+}
+button[type="submit"]:disabled { background: #c7d2fe; cursor: not-allowed; }
+
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.5);
+  display: flex; align-items: center; justify-content: center;
+}
+.modal {
+  background: #fff; padding: 28px; border-radius: 12px; max-width: 380px; width: 90%; text-align: center;
+}
+.modal h2 { color: #16a34a; margin-bottom: 12px; }
+.modal ul { text-align: left; margin: 12px 0; font-size: 14px; list-style: none; }
+.modal li { padding: 2px 0; }
+.modal button { margin-top: 12px; padding: 8px 24px; border: none; border-radius: 8px; background: #6366f1; color: #fff; cursor: pointer; }
