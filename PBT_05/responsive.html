@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <!-- Thẻ viewport BẮT BUỘC cho responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cửa hàng — Responsive Product Page</title>
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="logo">🛍️ TechShop</div>
+
+    <!-- Hamburger: chỉ hiện trên mobile (checkbox hack, không cần JS) -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+    <label for="nav-toggle" class="hamburger" aria-label="Mở menu">&#9776;</label>
+
+    <nav class="nav">
+      <a href="#">Trang chủ</a>
+      <a href="#">Sản phẩm</a>
+      <a href="#">Khuyến mãi</a>
+      <a href="#">Liên hệ</a>
+    </nav>
+  </header>
+
+  <!-- ===== LAYOUT CHÍNH ===== -->
+  <div class="layout">
+
+    <!-- SIDEBAR: ẩn trên mobile -->
+    <aside class="sidebar">
+      <h3>Bộ lọc</h3>
+      <label><input type="checkbox"> Laptop</label>
+      <label><input type="checkbox"> Điện thoại</label>
+      <label><input type="checkbox"> Phụ kiện</label>
+      <h3>Giá</h3>
+      <label><input type="radio" name="price"> Dưới 5 triệu</label>
+      <label><input type="radio" name="price"> 5–15 triệu</label>
+      <label><input type="radio" name="price"> Trên 15 triệu</label>
+    </aside>
+
+    <!-- PRODUCT GRID: 1 / 2 / 4 cột theo breakpoint -->
+    <main class="product-grid">
+      <article class="card">
+        <img src="https://picsum.photos/seed/p1/400/300" alt="Sản phẩm 1">
+        <h2 class="card-title">Laptop Pro 14"</h2>
+        <p class="price">24.990.000đ</p>
+        <button class="buy-btn">Mua ngay</button>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/seed/p2/400/300" alt="Sản phẩm 2">
+        <h2 class="card-title">Điện thoại X12</h2>
+        <p class="price">12.490.000đ</p>
+        <button class="buy-btn">Mua ngay</button>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/seed/p3/400/300" alt="Sản phẩm 3">
+        <h2 class="card-title">Tai nghe AirBuds</h2>
+        <p class="price">2.190.000đ</p>
+        <button class="buy-btn">Mua ngay</button>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/seed/p4/400/300" alt="Sản phẩm 4">
+        <h2 class="card-title">Bàn phím cơ K8</h2>
+        <p class="price">1.890.000đ</p>
+        <button class="buy-btn">Mua ngay</button>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/seed/p5/400/300" alt="Sản phẩm 5">
+        <h2 class="card-title">Chuột Gaming G5</h2>
+        <p class="price">990.000đ</p>
+        <button class="buy-btn">Mua ngay</button>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/seed/p6/400/300" alt="Sản phẩm 6">
+        <h2 class="card-title">Màn hình 27" 2K</h2>
+        <p class="price">6.490.000đ</p>
+        <button class="buy-btn">Mua ngay</button>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/seed/p7/400/300" alt="Sản phẩm 7">
+        <h2 class="card-title">Loa Bluetooth M3</h2>
+        <p class="price">1.290.000đ</p>
+        <button class="buy-btn">Mua ngay</button>
+      </article>
+      <article class="card">
+        <img src="https://picsum.photos/seed/p8/400/300" alt="Sản phẩm 8">
+        <h2 class="card-title">Webcam Full HD</h2>
+        <p class="price">790.000đ</p>
+        <button class="buy-btn">Mua ngay</button>
+      </article>
+    </main>
+
+    <!-- ADS BAR: chỉ hiện trên desktop -->
+    <aside class="ads">
+      <div class="ad-box">🎁 Giảm 20%<br>cho đơn đầu tiên</div>
+      <div class="ad-box">🚚 Freeship<br>toàn quốc</div>
+    </aside>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>© 2026 TechShop — Lê Trần Tiến Bảo · 64KTPM5 · ĐH Thủy Lợi</p>
+  </footer>
+</body>
+</html>
