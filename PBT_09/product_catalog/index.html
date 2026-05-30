@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Catalog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Body gần như trống — toàn bộ content render bằng JavaScript -->
+  <header class="topbar">
+    <h1>🛍️ TechShop</h1>
+    <div class="controls">
+      <input id="search" type="text" placeholder="Tìm sản phẩm...">
+      <select id="sort">
+        <option value="default">Sắp xếp</option>
+        <option value="price-asc">Giá ↑</option>
+        <option value="price-desc">Giá ↓</option>
+        <option value="name">Tên A-Z</option>
+        <option value="rating">Đánh giá ↓</option>
+      </select>
+      <button id="darkToggle">🌙</button>
+      <button id="cartBtn">🛒<span id="cartBadge" class="badge hidden">0</span></button>
+    </div>
+  </header>
+
+  <nav id="categories" class="categories"></nav>
+  <main id="productGrid" class="grid"></main>
+  <div id="modalRoot"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
