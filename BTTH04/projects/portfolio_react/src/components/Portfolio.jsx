@@ -50,3 +50,4 @@ function Portfolio() {
 export default Portfolio;
 
 // filter handler
+// visible projects
