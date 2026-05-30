@@ -1,0 +1,93 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f4f5f7;
+  color: #1f2937;
+  padding: 24px;
+}
+h1 { margin-bottom: 16px; }
+section { margin: 28px 0; }
+h2 { font-size: 16px; margin-bottom: 12px; color: #374151; }
+
+/* =========================================================
+   1. CARD HOVER — nhấc lên + đổ bóng đậm hơn, mượt 0.3s
+   ========================================================= */
+.card {
+  width: 260px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,.1);
+  transition: all 0.3s ease;       /* hiệu ứng chuyển mượt */
+}
+.card:hover {
+  transform: translateY(-8px);     /* nhấc card lên 8px */
+  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+}
+.card h3 { padding: 10px 14px 0; font-size: 16px; }
+
+/* =========================================================
+   3. IMAGE ZOOM — container cắt phần thừa, ảnh phóng to khi hover
+   ========================================================= */
+.img-wrap {
+  overflow: hidden;                /* cắt phần ảnh tràn ra khi zoom */
+}
+.img-wrap img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.card:hover .img-wrap img {
+  transform: scale(1.1);           /* zoom 110% */
+}
+
+/* =========================================================
+   2. BUTTON HOVER — đổi màu nền/chữ + scale nhẹ
+   ========================================================= */
+.buy-btn {
+  margin: 12px 14px 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+.buy-btn:hover {
+  background-color: #1e40af;
+  color: #fde68a;
+  transform: scale(1.05);          /* phóng to nhẹ */
+}
+
+/* =========================================================
+   4. LOADING SPINNER — hình tròn border + @keyframes xoay
+   ========================================================= */
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #e5e7eb;       /* viền nền xám */
+  border-top-color: #2563eb;       /* 1 cạnh màu xanh để thấy chuyển động */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* =========================================================
+   5. FADE-IN — opacity 0 + dịch lên, hiện dần khi tải trang
+   ========================================================= */
+.fade-box {
+  background: #fff;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.1);
+  animation: fadeIn 0.8s ease forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
