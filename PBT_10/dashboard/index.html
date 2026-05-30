@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-API Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>📊 Multi-API Dashboard</h1>
+    <div class="header-actions">
+      <span id="loadTime"></span>
+      <button id="refreshBtn">🔄 Refresh All</button>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <section class="widget" id="widget-weather"><h2>🌤️ Thời tiết Hà Nội</h2><div class="content"></div></section>
+    <section class="widget" id="widget-country"><h2>🌏 Việt Nam</h2><div class="content"></div></section>
+    <section class="widget" id="widget-users"><h2>👤 Random Users</h2><div class="content"></div></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
